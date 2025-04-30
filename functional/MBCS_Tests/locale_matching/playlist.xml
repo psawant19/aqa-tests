@@ -13,6 +13,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <playlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../TKG/resources/playlist.xsd">
+	<test>
+        <testCaseName>MBCS_Tests_locale_matching_ja_JP_zos</testCaseName>
+        <command>LANG=ja_JP.UTF-8 perl $(TEST_RESROOT)$(D)test.pl; \
+    $(TEST_STATUS)</command>
+        <platformRequirements>os.zos</platformRequirements>
+        <levels>
+            <level>special</level>
+        </levels>
+        <groups>
+            <group>functional</group>
+        </groups>
+        <versions>
+            <version>11+</version>
+        </versions>
+    </test>
 	<!-- Linux -->
 	<test>
 		<testCaseName>MBCS_Tests_locale_matching_ja_JP_linux</testCaseName>
