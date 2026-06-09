@@ -28,22 +28,12 @@ CHARMAP=${FULLLANG}
 FULL_VERSION=$(java -version 2>&1 | grep 'version' | cut -d '"' -f2)
 JAVA_VERSION=${FULL_VERSION%%.*}
 
-# Debug output
-echo "DEBUG: FULL_VERSION=$FULL_VERSION"
-echo "DEBUG: JAVA_VERSION=$JAVA_VERSION"
-echo "DEBUG: CHARMAP=$CHARMAP"
-
 #_22 file is only applicable for taiwanese in AIX and Linux else it should fall back to default
 if { [ "$CHARMAP" = "Linux_zh_TW.UTF-8" ] || [ "$CHARMAP" = "AIX_ZH_TW.UTF-8" ]; } && [ "$JAVA_VERSION" -ge 22 ]; then
-    echo "DEBUG: Condition matched - using _22 file"
     SOURCE="${CHARMAP}_22.txt"
 else
-    echo "DEBUG: Condition not matched - using default file"
     SOURCE="${CHARMAP}.txt"
 fi
-
-echo "DEBUG: SOURCE=$SOURCE"
-echo "DEBUG: EXP_FILE will be=expected_${SOURCE}"
 
 # Create the expected file name
 EXP_FILE=expected_${SOURCE}
