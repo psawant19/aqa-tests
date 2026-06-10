@@ -300,12 +300,6 @@ limitations under the License.
 	</test>
 	<test>
 		<testCaseName>MBCS_Tests_formatter_tw_windows</testCaseName>
-		<disables>
-			<disable>
-				<comment>https://github.com/adoptium/aqa-tests/issues/5148</comment>
-				<version>22+</version>
-			</disable>
-		</disables>
 		<command>$(TEST_RESROOT)$(D)test2.bat windows zh tw MS950 TEST_STRING; \
 	$(TEST_STATUS)</command>
 		<platformRequirements>os.win</platformRequirements>
